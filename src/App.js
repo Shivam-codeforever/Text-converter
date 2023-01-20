@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import logo from './logo.svg';
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./component/Navbar";
+import Textform from "./component/Textform";
 function App() {
+  const [mode, setMode] = useState("light");
+  const [text ,setText ] = useState("Dark");
+  const [text2 , setText2] = useState("black");
+  const [color , setColor] = useState("primary");
+  
+  const toggleMode = () =>{
+      if(mode === "light"){
+        setMode("dark");
+        setText("Light");
+        setText2("white");
+        setColor("success");
+        document.body.style.backgroundColor = "#212529";
+      }
+      else{
+        setMode("light");
+        setText("Dark");
+        setText2("black");
+        setColor("primary");
+        document.body.style.backgroundColor = "#f8f9fa";
+      }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+     <Navbar title="Text Converter" toggle={toggleMode} mode={mode} textbtn={text} color={color}></Navbar> 
+    <Textform heading = "Enter the Text" mode={mode} text2={text2}></Textform>
+    </>
   );
 }
 
