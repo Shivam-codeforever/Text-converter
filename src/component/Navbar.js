@@ -29,7 +29,7 @@ export default function Navbar(props) {
       <div className="first" >
         <nav className={`navbar navbar-${props.mode} bg-${props.mode}`}>
           <div className="container-fluid">
-            <a className="navbar-brand fw-bold fs-3 " href="/">
+            <a className={`navbar-brand fw-bold fs-3`} style={{color: props.color ==="primary" ? "#175DCF" : "#58DF5A"}} href="/">
               {props.title}
             </a>
 
